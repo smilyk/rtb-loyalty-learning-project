@@ -7,7 +7,10 @@ buildscript {
         classpath 'com.bmuschko:gradle-docker-plugin:3.1.0'
     }
 }
+
 apply plugin: com.bmuschko.gradle.docker.DockerRemoteApiPlugin
+
+
 
 docker {
     if (System.env.DOCKER_HOST) {
@@ -19,9 +22,9 @@ docker {
     registryCredentials {
         //url default value
         //url = 'https://index.docker.io/v1/'
-        username = 'smilyk'
+        username = 'springframeworkguru'
         password = (System.env.DOCKER_HUB_PWD)
-        email = 'smilyk1982@gmail.com'
+        email = 'john@springframework.guru'
     }
 }
 
@@ -34,7 +37,7 @@ task copyDockerFiles(type: Copy) {
     exclude "**/*.yml"
 }
 
-def rfbImageName = 'smilyk/rfbloyalty'
+def rfbImageName = 'springframeworkguru/rfbloyalty'
 
 task buildDocker(type: DockerBuildImage, dependsOn: 'copyDockerFiles') {
     description = "Package application as Docker image"

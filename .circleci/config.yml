@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: smilyk/circleci_build
+      - image: springframeworkguru/circleci_build
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -63,4 +63,3 @@ jobs:
       - run:
           name: Build Docker Image
           command: ./gradlew bootRepackage -Pprod pushDockerLatest pushDockerVersionTag -x test
-
